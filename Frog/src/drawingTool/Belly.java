@@ -1,7 +1,7 @@
 package drawingTool;
 
 import java.awt.Color;
-
+//testing git 
 
 public class Belly {
     private Color color; // Color of the belly
@@ -27,3 +27,4 @@ public class Belly {
 		}
 
 	}
+//big belly girl 
