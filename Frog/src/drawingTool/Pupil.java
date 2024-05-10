@@ -8,27 +8,17 @@ public class Pupil {
 	private int height;
   
     
-
     Pupil(int Width,int Height) {
         this.width = Width; 
         this.height = Height;
        
-        
     }
-
-
-	public int getWidth() {
-		return width;
-	}
-
-	public int getHeight() {
-		return height;
-	}
+    
 
 	void drawAt(int left, int bottom) {
 		
 		Drawing.pen().setColor(Color.BLACK); // Set the color of the pupil
-		Drawing.pen().fillOval(left, bottom, width,height); // Draw the pupil
+		Drawing.pen().fillOval(left, bottom, width, height); // Draw the pupil
     }
 
 

@@ -8,7 +8,7 @@ public class Face {
 
 	private static final int EYE_WIDTH_FACTOR = 7;
 	private static final int EYE_HEIGHT_FACTOR  = 5;
-	private static final int EYE_GAP_FACTOR = 40;
+	
     private int width;
     private int height;
     private Eye leftEye;
@@ -22,6 +22,7 @@ public class Face {
     	
         this.width = width;
         this.height = height/2;
+        //size of the eyes 
         this.leftEye = new Eye(width / EYE_WIDTH_FACTOR , height / EYE_HEIGHT_FACTOR);
         this.rightEye = new Eye(width / EYE_WIDTH_FACTOR, height / EYE_HEIGHT_FACTOR);
         this.nose = new Nose(width, height); 
@@ -49,10 +50,10 @@ public class Face {
     	
     	//this gets the width and height that was initialized in the eye class
     	int eyeLeft = left + width / 2;
-        int eyeBottom = bottom - height / 2;
-        
-       leftEye.drawAt( eyeLeft , eyeBottom);//position of eyes 
-       rightEye.drawAt(  eyeLeft , eyeBottom);
+        int eyeBottom = bottom - height;
+        //position of eyes 
+        leftEye.drawAt( eyeLeft , eyeBottom);
+        rightEye.drawAt(  eyeLeft , eyeBottom);
         
         int noseLeft = left + width / 2;
         int noseBottom = bottom - height / 2;

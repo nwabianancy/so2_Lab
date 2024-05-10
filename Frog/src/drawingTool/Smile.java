@@ -3,8 +3,8 @@ package drawingTool;
 import java.awt.*;
 
 	public class Smile {
-		//private static final int SMILE_WIDTH_FACTOR = 4;
-	    //private static final int SMILE_HEIGHT_FACTOR = 2;
+		private static final int SMILE_WIDTH_FACTOR = 4;
+	    private static final int SMILE_HEIGHT_FACTOR = 2;
 		
         private int width;
         private int height;
@@ -24,7 +24,7 @@ import java.awt.*;
 
         	Drawing.pen().setColor(Color.black);
             // Draw the smile as a half circle
-        	Drawing.pen().drawArc(left + (width / 4), bottom - height / 2 -10, width / 2, height / 2, 0, -180);
+        	Drawing.pen().drawArc(left + (width / SMILE_WIDTH_FACTOR ), bottom - height / SMILE_HEIGHT_FACTOR - 10, width / 2, height / 2, 0, -180);
         }
     }
     

@@ -4,20 +4,23 @@ import java.awt.Color;
 
 
 public class Eye { 
-	private static final int PUPIL_POSITION = 30;
-	private static final int EYE_GAP_FACTOR = 40;
+	
+	private static final int PUPIL_POSITION = 30 ;
+	private static final int EYE_GAP_FACTOR = 2;
+	
 	private int width;
 	private int height;
     private Pupil pupil;
     private int gap;
 
-    public Eye(int Width, int Height) {
-    	this.width = Width;
-        this.height = Height; 
-        this.gap = Width / EYE_GAP_FACTOR;
-        //int eyeYPosition = faceHeight / 2 - this.height / 2;
-        int pupilWidth = width * 2 - height;
-        int pupilHeight = height - PUPIL_POSITION;
+    public Eye(int width, int height) {
+    	this.width = width;
+        this.height = height; 
+        this.gap = width / EYE_GAP_FACTOR;
+
+        int pupilWidth = width / 2;
+        int pupilHeight = height / 2;
+        
         this.pupil = new Pupil(pupilWidth, pupilHeight);// you need to make the magic values a constant 
 	}
     
@@ -32,23 +35,31 @@ public class Eye {
 	void drawAt( int left, int bottom) {//methods
         // eye position 
 		
-		int leftEye = left -(width + gap);
+		int leftEye = left - (width + gap);
 		int rightEye = left + gap;
+		int eyeTop = bottom - (height / EYE_GAP_FACTOR);//10 the top of the eyes to show where is stops 
 		
 		//draw left eye 
 		Drawing.pen().setColor(Color.BLACK);
-		Drawing.pen().drawOval(leftEye + (width / 5), bottom - (height / 2), width, height );
-    	Drawing.pen().setColor(Color.red);
-    	Drawing.pen().fillOval(leftEye + (width / 5), bottom - (height / 2), width, height);
+		Drawing.pen().drawOval(leftEye + (width / 4), eyeTop, width, height );
+    	Drawing.pen().setColor(Color.white);
+    	Drawing.pen().fillOval(leftEye + (width / 4), eyeTop, width, height);
     	
     	// draw right eye 
     	Drawing.pen().setColor(Color.BLACK);
-		Drawing.pen().drawOval(rightEye + (width / 2), bottom - (height / 2), width, height );
-    	Drawing.pen().setColor(Color.blue);
-    	Drawing.pen().fillOval(rightEye + (width / 2), bottom - (height / 2), width, height);
+		Drawing.pen().drawOval(rightEye + (width / 4), eyeTop, width, height );
+		Drawing.pen().setColor(Color.white);
+    	Drawing.pen().fillOval(rightEye + (width / 4), eyeTop, width, height);
     	
-         // Draw the pupil in the center of the eye
-        pupil.drawAt((left + width / 2) - pupil.getWidth() / 2, (bottom +height/2) - pupil.getHeight() / 2);
+    	//position of pupil 
+        
+    	// Draw the pupil in the center of the eye
+    	int pupilLeft = leftEye + gap ;
+    	int pupilRight = rightEye + gap; 
+    	int pupilBottom = eyeTop + height/4  ; //bottom - height / EYE_GAP_FACTOR + PUPIL_POSITION;
+    	
+        pupil.drawAt( pupilLeft , pupilBottom);
+        pupil.drawAt(pupilRight ,pupilBottom);
         
        
     }

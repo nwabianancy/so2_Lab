@@ -14,7 +14,7 @@ public class DrawingArea extends JPanel {
 		super.paintComponent(pen);
 		
 		Drawing.set(pen); //++
-		Frog myFrog = new Frog(200, 200); //size
+		Frog myFrog = new Frog(300, 300); //size
 		
 		myFrog.drawAt(pen, 500, 300); //the position of the frog on drawing area
 		/*
